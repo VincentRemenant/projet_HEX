@@ -1,3 +1,3 @@
-# Projet Licence informatique Paul SABATIER Toulouse III
-# Collaborateur : ROY Romain et Vincent REMENANT
-
+# Projet HEX
+Projet Licence informatique Paul SABATIER Toulouse III
+Collaborateur : Romain ROY et Vincent REMENANT
