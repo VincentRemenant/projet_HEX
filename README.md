@@ -6,8 +6,6 @@ Contributors : Romain ROY & Vincent REMENANT
 
 ### Titre 3
 
-#### Titre 4
-
 Texte en *italique* et en **gras**
 
 * Un élément
@@ -27,10 +25,10 @@ Exemple d'utilisation de la fonction `lol()` :
       lol();
     }
 
-Un [lien](https://www.youtube.com/ "S'affiche au survol")
-
-| Un          | Tableau       |
+| Titre 1     | Titre 2       |
 | ----------- | ------------- |
 | Colonne     | Une autre     |
 | d'un        | colonne de    |
 | tableau     | tableau       |
+
+Un [lien](https://fr.wikipedia.org/wiki/Markdown "Wikipédia") pour apprendre le Markdown
