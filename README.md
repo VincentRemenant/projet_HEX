@@ -4,22 +4,21 @@ Projet licence informatique L2 S4
 
 Contributors : Romain ROY & Vincent REMENANT
 
-## Titre 2
-
 ### Titre 3
+
+#### Titre 4
 
 Texte en *italique* et en **gras**
 
 * Un élément
 * Un autre élément
-	* Un sous élement
-	* Encore un sous élement
+	* Un sous élément
+	* Encore un sous élément
 * Un dernier pour finir
 
 > Une citation
 >> Une réponse
->> * avec
->> * une liste
+>> * avec une liste
 
 Du code :
 
