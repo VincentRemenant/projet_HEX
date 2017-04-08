@@ -1,28 +1,34 @@
 # Projet HEX
 
-Projet Licence informatique Paul SABATIER Toulouse III
+Projet licence informatique L2 S4
 
-Collaborateur : Romain ROY et Vincent REMENANT
-
-## Titre 2
+Contributors : Romain ROY & Vincent REMENANT
 
 ### Titre 3
 
 Texte en *italique* et en **gras**
 
 * Un élément
-* Un autre élément
-	* Un sous élement
-	* Encore un sous élement
-* Un dernier pour finir
+	* Un sous élément
+	* Encore un sous élément
+
+- [x] Case cochée
+- [ ] Case non cochée
 
 > Une citation
 >> Une réponse
+>> * avec une liste
 
-Du code :
+Exemple d'utilisation de la fonction `lol()` :
 
     void main() {
       lol();
     }
-	
-La fonction `lol()` n'existe pas
+
+| Titre 1     | Titre 2       |
+| ----------- | ------------- |
+| Colonne     | Une autre     |
+| d'un        | colonne de    |
+| tableau     | tableau       |
+
+Un [lien](https://fr.wikipedia.org/wiki/Markdown "Wikipédia") pour apprendre le Markdown
