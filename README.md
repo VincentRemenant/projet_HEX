@@ -1,8 +1,8 @@
 # Projet HEX
 
-Projet Licence informatique Paul SABATIER Toulouse III
+Projet licence informatique L2 S4
 
-Collaborateur : Romain ROY et Vincent REMENANT
+Contributors : Romain ROY & Vincent REMENANT
 
 ## Titre 2
 
@@ -18,11 +18,13 @@ Texte en *italique* et en **gras**
 
 > Une citation
 >> Une réponse
+>> * avec
+>> * une liste
 
 Du code :
 
     void main() {
       lol();
     }
-	
+
 La fonction `lol()` n'existe pas
