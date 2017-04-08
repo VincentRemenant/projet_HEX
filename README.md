@@ -13,30 +13,24 @@ Texte en *italique* et en **gras**
 * Un élément
 	* Un sous élément
 	* Encore un sous élément
-* Puis un autre
 
-1. mon premier
-2. mon deuxième
-
-- [ ] Case non cochée
 - [x] Case cochée
+- [ ] Case non cochée
 
 > Une citation
 >> Une réponse
 >> * avec une liste
 
-Du code :
+Exemple d'utilisation de la fonction `lol()` :
 
     void main() {
       lol();
     }
 
-La fonction `lol()` n'existe pas évidemment
+Un [lien](https://www.youtube.com/ "S'affiche au survol")
 
-Un [lien](https://www.youtube.com/ "Truc qui s'affiche quand on passe la souris dessus")
-
-| Titre 1       |     Titre 2     |   Titre 3      |
-| ------------- | -------------   | ---------      |
-| Colonne       |     Colonne     |      Colonne   |
-| Alignée à     |      Alignée au |     Alignée à  |
-| Gauche        |      Centre     |      Droite    |
+| Un          | Tableau       |
+| ----------- | ------------- |
+| Colonne     | Une autre     |
+| d'un        | colonne de    |
+| tableau     | tableau       |
