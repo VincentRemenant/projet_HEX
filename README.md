@@ -1,34 +1,29 @@
 # Projet HEX
 
-Projet licence informatique L2 S4
+**Projet licence informatique L2 S4**
 
-Contributors : Romain ROY & Vincent REMENANT
+*Contributors : Romain ROY & Vincent REMENANT*
 
-### Titre 3
+Ce qui est fait :
 
-Texte en *italique* et en **gras**
+- [x] Menu (sorte d'interpréteur de commandes)
+- [x] Afficher les règles
+- [x] Aide
+- [x] Quitter
+
+### Rappels de Markdown
 
 * Un élément
 	* Un sous élément
-	* Encore un sous élément
-
-- [x] Case cochée
-- [ ] Case non cochée
+	* Un autre sous élément
 
 > Une citation
 >> Une réponse
->> * avec une liste
 
-Exemple d'utilisation de la fonction `lol()` :
+Exemple d'utilisation de la fonction `ecrireDuCode()` :
 
     void main() {
-      lol();
+      ecrireDuCode();
     }
 
-| Titre 1     | Titre 2       |
-| ----------- | ------------- |
-| Colonne     | Une autre     |
-| d'un        | colonne de    |
-| tableau     | tableau       |
-
-Un [lien](https://fr.wikipedia.org/wiki/Markdown "Wikipédia") pour apprendre le Markdown
+Un [lien](https://fr.wikipedia.org/wiki/Markdown) pour apprendre le Markdown
