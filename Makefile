@@ -9,3 +9,7 @@ all:	$(OBJ)
 util.o: util.c util.h
 menu.o: menu.c menu.h util.h
 main.o: main.c menu.h
+
+clean :
+		rm -rf *.o
+		rm $(EXEC)
