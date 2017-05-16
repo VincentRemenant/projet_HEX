@@ -2,9 +2,6 @@
 #include <stdio.h>
 #include "graphe.h"
 
-#define NOIR 1
-#define BLANC 0
-#define TRANSPARENT 2
 
 
 struct adjliste_node_s{
@@ -92,9 +89,11 @@ void ajouterSommet(graphe_t * graphe, int src, int dest){
 
 
 }
+void changerCouleur(int couleur, int vertex){
+  
+}
 
-void afficherGraphe(graphe_t graphe)
-{
+void afficherGraphe(graphe_t graphe){
     int i;
     for (i = 0; i < graphe->nb_vertices; i++)
     {
