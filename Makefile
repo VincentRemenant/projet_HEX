@@ -1,5 +1,3 @@
-.PHONY: clean
-
 CC = gcc
 SYS = -Wall -pedantic -std=c99
 
