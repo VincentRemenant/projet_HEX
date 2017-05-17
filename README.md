@@ -8,12 +8,13 @@ Avancement du projet :
 
 - [x] Menu
 - [x] Afficher les règles
+- [x] Paramètres
 - [x] Aide
 - [x] Quitter
 - [ ] Sauvegarder
 - [ ] Charger
-- [ ] Paramètres
 - [ ] Interface
+- [ ] Et le jeu
 
 ### Rappels de Markdown
 
