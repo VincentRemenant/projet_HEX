@@ -1,13 +1,14 @@
 CC= gcc
 CFLAGS= -Wall -pedantic -std=c99
 EXEC= test_graphe
-OBJ= test_graphe.o graphe.o #main.o menu.o util.o
+OBJ= test_graphe.o graphe.o
 
 all:	$(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
 
-graphe.o: graphe.c graphe.h
-#menu.o: menu.c menu.h util.h
+
+graphe.o: graphe.c graphe.h pile/pile_dynamique.c pile/pile.h
+pile_dynamique.o: pile/pile_dynamique.c pile/pile.h
 test_graphe.o: test_graphe.c graphe.h
 
 clean :

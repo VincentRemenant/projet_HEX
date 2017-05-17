@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "graphe.h"
-
+#include "pile/pile.h"
 
 
 struct adjliste_node_s{
@@ -38,7 +38,7 @@ graphe_t creer_graph(int N){
     g->couleur = TRANSPARENT;
 
     /* Créer une liste de sommet adjacent*/
-    g->adjListe = (adjliste_t)malloc((4+(N*N)) * sizeof(struct adjliste_s));
+    g->adjListe = (adjliste_t)malloc(N * sizeof(struct adjliste_s));
     if(!g->adjListe)
         return NULL;
     for(i = 0; i < N; i++)
@@ -89,8 +89,9 @@ void ajouterSommet(graphe_t * graphe, int src, int dest){
 
 
 }
-void changerCouleur(int couleur, int vertex){
-  
+void changerCouleur(graphe_t g ,int couleur, int vertex){
+  //Pile p =  init_pile();
+
 }
 
 void afficherGraphe(graphe_t graphe){
