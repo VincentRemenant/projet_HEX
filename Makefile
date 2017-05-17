@@ -10,8 +10,8 @@ OBJ = main.o menu.o util.o graphe.o
 EXEC = hex
 
 all:	$(OBJ)
-		rm -rf obj bin
-		mkdir obj bin
+		rm -rf $(BINDIR) $(OBJDIR)
+		mkdir $(BINDIR) $(OBJDIR)
 		$(CC) -o $(BINDIR)/$(EXEC) $(OBJ)
 		mv *.o $(OBJDIR)/
 
@@ -25,5 +25,4 @@ main.o: main.c menu/menu.h
 	$(CC) -o main.o -c main.c $(SYS)
 
 clean :
-	rm -f $(OBJDIR)/*.o
-	rm $(BINDIR)/*
+	rm -rf $(BINDIR) $(OBJDIR)
