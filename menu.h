@@ -1,7 +1,7 @@
 
 void menu();
 
-void nouvellePartie();
+void nouvellePartie(int longueur, int largeur);
 
 void sauvegarder();
 
