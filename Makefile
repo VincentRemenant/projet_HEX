@@ -1,3 +1,5 @@
+.PHONY: clean
+
 CC = gcc
 SYS = -Wall -pedantic -std=c99
 
@@ -8,6 +10,8 @@ OBJ = main.o menu.o util.o graphe.o
 EXEC = hex
 
 all:	$(OBJ)
+		rm -rf obj bin
+		mkdir obj bin
 		$(CC) -o $(BINDIR)/$(EXEC) $(OBJ)
 		mv *.o $(OBJDIR)/
 

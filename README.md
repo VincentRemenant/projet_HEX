@@ -4,12 +4,16 @@
 
 *Contributors : Romain ROY & Vincent REMENANT*
 
-Ce qui est fait :
+Avancement du projet :
 
-- [x] Menu (sorte d'interpréteur de commandes)
+- [x] Menu
 - [x] Afficher les règles
 - [x] Aide
 - [x] Quitter
+- [ ] Sauvegarder
+- [ ] Charger
+- [ ] Paramètres
+- [ ] Interface
 
 ### Rappels de Markdown
 
