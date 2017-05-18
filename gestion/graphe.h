@@ -14,7 +14,7 @@ adjliste_node_t creer_node(int v);
 graphe_t creer_graph(int N);
 void detruire_graphe(graphe_t * graphe);
 void ajouterSommet(graphe_t * graphe, int src, int dest);
-void changerCouleur(graphe_t g,int couleur, int vertex);
+void changerCouleur(graphe_t * g,int couleur, int vertex);
 // bool estAdjacent(graphe_t sommet1,graphe_t sommet2);
 // bool estConnecte(graphe_t sommet1,graphe_t sommet2);
 // int getDistance(graphe_t sommet1, graphe_t sommet2);

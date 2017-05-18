@@ -1,11 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "graphe.h"
-#include "pile/pile.h"
+#include "pile.h"
 
 
 struct adjliste_node_s{
   int vertex;
+  int couleur;
   adjliste_node_t suivant;
 };
 struct adjliste_s{
@@ -15,7 +16,6 @@ struct adjliste_s{
 
 struct graphe_s{
   int nb_vertices;
-  int couleur;
   adjliste_t adjListe;
 };
 
@@ -26,7 +26,7 @@ adjliste_node_t creer_node(int v){
 
     node->vertex = v;
     node->suivant = NULL;
-
+    node->couleur = TRANSPARENT;
     return node;
 }
 graphe_t creer_graph(int N){
@@ -35,7 +35,6 @@ graphe_t creer_graph(int N){
     if(!g)
         return NULL;
     g->nb_vertices = N;
-    g->couleur = TRANSPARENT;
 
     /* Créer une liste de sommet adjacent*/
     g->adjListe = (adjliste_t)malloc(N * sizeof(struct adjliste_s));
@@ -89,20 +88,30 @@ void ajouterSommet(graphe_t * graphe, int src, int dest){
 
 
 }
-void changerCouleur(graphe_t g ,int couleur, int vertex){
-  //Pile p =  init_pile();
+void changerCouleur(graphe_t * graphe ,int couleur, int vertex){
+    int i;
+    for (i =0 ; i < (*graphe)->nb_vertices; i++ ){
+      adjliste_node_t adjListe = (*graphe)->adjListe[i].tete;
+      printf("dqs %d\n",adjListe->vertex );
+      if(adjListe->vertex == vertex){
+        adjListe->couleur = couleur;
+
+        return ;
+      }
+    }
 
 }
 
 void afficherGraphe(graphe_t graphe){
     int i;
+    printf("numeroVertex # couleur\n");
     for (i = 0; i < graphe->nb_vertices; i++)
     {
         adjliste_node_t adjListe = graphe->adjListe[i].tete;
-        printf("\n%d: ", i);
+        printf("\n%d#%d: ", i , adjListe->couleur );
         while (adjListe)
         {
-            printf("%d->", adjListe->vertex);
+            printf("%d#%d->", adjListe->vertex, adjListe->couleur);
             adjListe = adjListe->suivant;
         }
         printf("FIN\n");

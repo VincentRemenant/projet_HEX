@@ -12,7 +12,9 @@ int main(){
     ajouterSommet(&graphe, 1, 4);
     ajouterSommet(&graphe, 2, 3);
     ajouterSommet(&graphe, 3, 4);
-    
+    afficherGraphe(graphe);
+
+    changerCouleur(&graphe, 1 , 1);
     afficherGraphe(graphe);
     detruire_graphe(&graphe);
 
