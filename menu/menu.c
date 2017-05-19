@@ -36,7 +36,7 @@ void menu(void) {
     free(choix);
 }
 
-void nouvellePartie() {
+void nouvellePartie(void) {
     // jeu @Vincent
 }
 
