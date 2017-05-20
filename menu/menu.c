@@ -36,7 +36,7 @@ void menu(void) {
     free(choix);
 }
 
-void nouvellePartie() {
+void nouvellePartie(void) {
     // jeu @Vincent
 }
 
@@ -64,7 +64,7 @@ void parametres(int *taille, int *difficulte) {
     printf("La taille est désormais de %d.\n",*taille);
     do {
         printf("Choix de la difficulté : \n");
-        printf("\"joueur\" pour jouer contre un ami ou \"facile\" pour une IA facile.\n");
+        printf("Saisissez \"joueur\" pour jouer contre un ami ou \"facile\" pour une IA facile.\n");
         printf("Saisissez la difficulté désirée : ");
         choix = saisir();
         if (strcmp(choix,"joueur") == 0) {
