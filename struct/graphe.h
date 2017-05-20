@@ -5,8 +5,6 @@
 #define NOIR 1
 #define BLANC 0
 #define TRANSPARENT 2
-#define VISITED
-#define NOTVISISTED
 
 
 typedef struct adjliste_node_s * adjliste_node_t;

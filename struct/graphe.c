@@ -6,7 +6,6 @@
 struct adjliste_node_s{
   int vertex;
   int couleur;
-  int visited;
   int nb_membres;
   int nb_liens;
   adjliste_node_t * suivant;
@@ -43,23 +42,24 @@ graphe_t creer_graph(int N){
 }
 
 void detruire_graphe(graphe_t * graphe){
-    if(*graphe)
-    {
-        if((*graphe)->adjListe)
-        {
-            int v;
-            for (v = 0; v < (*graphe)->nb_vertices; v++)
-            {
-                adjliste_node_t adjListe = (*graphe)->adjListe+v;
-                free(adjListe->suivant);
-                free(adjListe);
-            }
-
-        }
-        free((*graphe)->adjListe);
-        free(*graphe);
-
-    }
+    // if(*graphe)
+    // {
+    //     if((*graphe)->adjListe)
+    //     {
+    //         int v;
+    //         for (v = 0; v < (*graphe)->nb_vertices; v++)
+    //         {
+    //           printf("SUPPRIMATION \n");
+    //             adjliste_node_t adjListe = (*graphe)->adjListe+v;
+    //             free(adjListe->suivant);
+    //             free(adjListe);
+    //         }
+    //
+    //     }
+    //     //free((*graphe)->adjListe);
+    //     free(*graphe);
+    //
+    // }
 }
 
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens){
