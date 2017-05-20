@@ -48,13 +48,9 @@ void detruire_graphe(graphe_t * graphe){
             int v;
             for (v = 0; v < (*graphe)->nb_vertices; v++)
             {
-                printf("SUPPRIMATION \n");
                 adjliste_node_t adjListe = (*graphe)->adjListe[v];
-
                 free(adjListe->suivant);
-                printf("free1 \n");
                 free(adjListe);
-                printf("free2 \n");
             }
 
         }
