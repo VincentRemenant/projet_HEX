@@ -22,7 +22,6 @@ adjliste_node_t creer_node(int v, int nb_liens){
     if(!node)
         return NULL;
     node->nb_liens = nb_liens;
-
     node->vertex = v;
     node->suivant = malloc(nb_liens * sizeof(struct adjliste_node_s));
     node->suivant[0]=node;
@@ -44,28 +43,23 @@ graphe_t creer_graph(int N){
 }
 
 void detruire_graphe(graphe_t * graphe){
-    // if(*graphe)
-    // {
-    //     if((*graphe)->adjListe)
-    //     {
-    //         int v;
-    //         /*libère les noeuds*/
-    //         for (v = 0; v < (*graphe)->nb_vertices; v++)
-    //         {
-    //             adjliste_node_t adjListe = (*graphe)->adjListe+v;
-    //             while (adjListe)
-    //             {
-    //                 adjliste_node_t tmp = adjListe;
-    //                 adjListe = adjListe->suivant;
-    //                 free(tmp);
-    //             }
-    //         }
-    //         /*libère la liste d'adjacence*/
-    //         free((*graphe)->adjListe);
-    //     }
-    //     /*libère le graphe*/
-    //     free(*graphe);
-    //}
+    if(*graphe)
+    {
+        if((*graphe)->adjListe)
+        {
+            int v;
+            for (v = 0; v < (*graphe)->nb_vertices; v++)
+            {
+                adjliste_node_t adjListe = (*graphe)->adjListe+v;
+                free(adjListe->suivant);
+                free(adjListe);
+            }
+
+        }
+        free((*graphe)->adjListe);
+        free(*graphe);
+
+    }
 }
 
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens){
