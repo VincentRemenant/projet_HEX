@@ -21,13 +21,6 @@ int main(){
     ajouterArrete(&graphe,1, 4);//1->4  4->1
 
 
-    // ajouterSommet(&graphe, 0,1);
-    // ajouterSommet(&graphe, 0, 4);
-    // ajouterSommet(&graphe, 1, 2);
-    // ajouterSommet(&graphe, 1, 3);
-    // ajouterSommet(&graphe, 1, 4);
-    // ajouterSommet(&graphe, 2, 3);
-    // ajouterSommet(&graphe, 3, 4);
     afficherGraphe(graphe);
 
     changerCouleur(&graphe, 1 , 1);

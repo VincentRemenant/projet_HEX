@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "graphe.h"
-#include "pile.h"
 
 struct adjliste_node_s{
   int vertex;
@@ -13,7 +12,7 @@ struct adjliste_node_s{
 
 struct graphe_s{
   int nb_vertices;
-  adjliste_node_t adjListe;
+  adjliste_node_t * adjListe;
 };
 
 adjliste_node_t creer_node(int v, int nb_liens){
@@ -35,54 +34,57 @@ graphe_t creer_graph(int N){
     g->nb_vertices = N;
 
     /* Créer une liste de sommet adjacent*/
-    g->adjListe = (adjliste_node_t)malloc(N * sizeof(struct adjliste_node_s));
+    g->adjListe = malloc(N * sizeof(struct adjliste_node_s));
     if(!g->adjListe)
         return NULL;
     return g;
 }
 
 void detruire_graphe(graphe_t * graphe){
-    // if(*graphe)
-    // {
-    //     if((*graphe)->adjListe)
-    //     {
-    //         int v;
-    //         for (v = 0; v < (*graphe)->nb_vertices; v++)
-    //         {
-    //           printf("SUPPRIMATION \n");
-    //             adjliste_node_t adjListe = (*graphe)->adjListe+v;
-    //             free(adjListe->suivant);
-    //             free(adjListe);
-    //         }
-    //
-    //     }
-    //     //free((*graphe)->adjListe);
-    //     free(*graphe);
-    //
-    // }
+    if(*graphe)
+    {
+        if((*graphe)->adjListe)
+        {
+            int v;
+            for (v = 0; v < (*graphe)->nb_vertices; v++)
+            {
+                printf("SUPPRIMATION \n");
+                adjliste_node_t adjListe = (*graphe)->adjListe[v];
+
+                free(adjListe->suivant);
+                printf("free1 \n");
+                free(adjListe);
+                printf("free2 \n");
+            }
+
+        }
+        free((*graphe)->adjListe);
+        free(*graphe);
+
+    }
 }
 
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens){
 
     adjliste_node_t node = creer_node(vertex, nb_liens);
-    (*graphe)->adjListe[vertex] = *node;
+    (*graphe)->adjListe[vertex] = node;
 
 
 }
 
 void ajouterArrete(graphe_t * graphe, int vertex1 , int vertex2){
-    adjliste_node_t  node1 = &((*graphe)->adjListe[vertex1]);
-    adjliste_node_t  node2 = &((*graphe)->adjListe[vertex2]);
+    adjliste_node_t  node1 = (*graphe)->adjListe[vertex1];
+    adjliste_node_t  node2 = (*graphe)->adjListe[vertex2];
     node1->suivant[node1->nb_membres] = node2;
     node2->suivant[node2->nb_membres] = node1;
     node1->nb_membres++;
     node2->nb_membres++;
 }
 void changerCouleur(graphe_t * graphe ,int couleur, int vertex){
-  ((*graphe)->adjListe+vertex)->couleur = couleur;
+  ((*graphe)->adjListe[vertex])->couleur = couleur;
 }
 int getCouleur(graphe_t g, int vertex){
-  return (g->adjListe+vertex)->couleur;
+  return (g->adjListe[vertex])->couleur;
 
 }
 
@@ -91,7 +93,7 @@ void afficherGraphe(graphe_t graphe){
     int i;
     printf("numeroVertex # couleur\n");
     for (i = 0; i < graphe->nb_vertices; i++){
-        adjliste_node_t adjListe = graphe->adjListe+i;
+        adjliste_node_t adjListe = graphe->adjListe[i];
         printf("liste %d : ", i );
         for(int j = 0 ; j < adjListe->nb_membres; j++){
             printf("%d#%d->", adjListe->suivant[j]->vertex, getCouleur(graphe, adjListe->suivant[j]->vertex));
