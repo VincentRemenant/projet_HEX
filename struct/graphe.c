@@ -4,7 +4,7 @@
 
 struct adjliste_node_s{
   int vertex;
-  int couleur;
+  char couleur;
   int nb_membres;
   int nb_liens;
   adjliste_node_t * suivant;
@@ -24,7 +24,7 @@ adjliste_node_t creer_node(int v, int nb_liens){
     node->suivant = malloc(nb_liens * sizeof(struct adjliste_node_s));
     node->suivant[0]=node;
     node->nb_membres = 1;
-    node->couleur = TRANSPARENT;
+    node->couleur = TRANSPARENT ;
     return node;
 }
 graphe_t creer_graph(int N){
@@ -61,11 +61,8 @@ void detruire_graphe(graphe_t * graphe){
 }
 
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens){
-
     adjliste_node_t node = creer_node(vertex, nb_liens);
     (*graphe)->adjListe[vertex] = node;
-
-
 }
 
 void ajouterArrete(graphe_t * graphe, int vertex1 , int vertex2){
@@ -76,12 +73,11 @@ void ajouterArrete(graphe_t * graphe, int vertex1 , int vertex2){
     node1->nb_membres++;
     node2->nb_membres++;
 }
-void changerCouleur(graphe_t * graphe ,int couleur, int vertex){
+void changerCouleur(graphe_t * graphe ,char couleur, int vertex){
   ((*graphe)->adjListe[vertex])->couleur = couleur;
 }
-int getCouleur(graphe_t g, int vertex){
+char getCouleur(graphe_t g, int vertex){
   return (g->adjListe[vertex])->couleur;
-
 }
 
 
@@ -92,7 +88,7 @@ void afficherGraphe(graphe_t graphe){
         adjliste_node_t adjListe = graphe->adjListe[i];
         printf("liste %d : ", i );
         for(int j = 0 ; j < adjListe->nb_membres; j++){
-            printf("%d#%d->", adjListe->suivant[j]->vertex, getCouleur(graphe, adjListe->suivant[j]->vertex));
+            printf("%d#%c->", adjListe->suivant[j]->vertex, getCouleur(graphe, adjListe->suivant[j]->vertex));
         }
         printf("FIN\n");
     }

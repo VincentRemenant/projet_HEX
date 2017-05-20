@@ -2,9 +2,9 @@
 #define GRAPHE_H
 
 #include <stdbool.h>
-#define NOIR 1
-#define BLANC 0
-#define TRANSPARENT 2
+#define NOIR '*'
+#define BLANC 'o'
+#define TRANSPARENT '.'
 
 
 typedef struct adjliste_node_s * adjliste_node_t;
@@ -14,8 +14,8 @@ graphe_t creer_graph(int N);
 void detruire_graphe(graphe_t * graphe);
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens);
 void ajouterArrete(graphe_t * graphe, int vertex1 , int vertex2);
-void changerCouleur(graphe_t * g,int couleur, int vertex);
-int getCouleur(graphe_t graphe, int vertex);
+void changerCouleur(graphe_t * g ,char couleur, int vertex);
+char getCouleur(graphe_t graphe, int vertex);
 // bool estAdjacent(graphe_t sommet1,graphe_t sommet2);
 // bool estConnecte(graphe_t sommet1,graphe_t sommet2);
 // int getDistance(graphe_t sommet1, graphe_t sommet2);

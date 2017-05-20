@@ -7,11 +7,11 @@ int main(){
     graphe_t graphe = creer_graph(5);
     printf("ajout sommet\n");
 
-      ajouterSommet(&graphe, 0, 2);
-      ajouterSommet(&graphe, 1, 3);
-      ajouterSommet(&graphe, 2, 2);
-      ajouterSommet(&graphe, 3, 1);
-      ajouterSommet(&graphe, 4, 2);
+    ajouterSommet(&graphe, 0, 2);
+    ajouterSommet(&graphe, 1, 3);
+    ajouterSommet(&graphe, 2, 2);
+    ajouterSommet(&graphe, 3, 1);
+    ajouterSommet(&graphe, 4, 2);
 
     printf("ajout arrete\n");
     ajouterArrete(&graphe,0, 4);//0->4  4->0
@@ -23,8 +23,8 @@ int main(){
 
     afficherGraphe(graphe);
 
-    changerCouleur(&graphe, 1 , 1);
-    printf("couleur vertex n°1 : %d\n", getCouleur(graphe,1));
+    changerCouleur(&graphe, NOIR , 1);
+    printf("couleur vertex n°1 : %c \n", getCouleur(graphe,1));
     afficherGraphe(graphe);
     detruire_graphe(&graphe);
 
