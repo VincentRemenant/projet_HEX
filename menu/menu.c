@@ -41,17 +41,20 @@ void menu(void) {
 void nouvellePartie(int taille, int difficulte) {
     graphe_t plateau;
     /* Création du plateau de jeu vide */
-    plateau = creer_graph(taille);
-    for (int i=0; i<taille*taille+4; i++) {
-        ajouterSommet(&plateau, i, 6);
-        changerCouleur(&plateau, VIDE, i);
-    }
+    plateau = creer_graph(taille*taille+4);
     /* Ajout des arrêtes, d'abord les 4 côtés */
     for (int i=0; i<4; i++) ajouterSommet(&plateau, i, taille);
-    for (int i=4; i<taille*taille+3; i+=taille) ajouterArrete(&plateau, i, 0);
+    for (int i=4; i<taille*taille+4; i++) {
+        ajouterSommet(&plateau, i, 6);
+    }
+
+    for (int i=4; i<(taille*taille)+1; i+=taille) ajouterArrete(&plateau, i, 0);
+
     for (int i=4; i<taille+4; i++) ajouterArrete(&plateau, i, 1);
-    for (int i=3+taille; i<taille*taille+4; i+=taille) ajouterArrete(&plateau, i, 2);
-    for (int i=taille*taille+5-taille; i<taille*taille+4; i++) ajouterArrete(&plateau, i, 3);
+
+    for (int i=(taille-1)+4; i<taille*taille+4; i+=taille) ajouterArrete(&plateau, i, 2);
+
+    for (int i=taille*taille; i<taille*taille+4; i++) ajouterArrete(&plateau, i, 3);
     for (int i=4; i<taille*taille+4-taille; i++) {
         ajouterArrete(&plateau, i, i+1);
         ajouterArrete(&plateau, i, i+taille);
