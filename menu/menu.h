@@ -1,3 +1,10 @@
+/*************************************************************
+* menu.h - Différentes fonctions du menu de jeu de hex       *
+* Dépendance : TAD graphe                                    *
+* Dernière modification : 22/05/2017                         *
+* Auteur : Romain Roy                                        *
+**************************************************************/
+
 #include "../struct/graphe.h"
 
 void menu(void);
