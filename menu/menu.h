@@ -1,6 +1,6 @@
 /*************************************************************
 * menu.h - Différentes fonctions du menu de jeu de hex       *
-* Dépendance : TAD graphe                                    *
+* Dépendance : TAD graphe, fonctions d'util.h                *
 * Dernière modification : 22/05/2017                         *
 * Auteur : Romain Roy                                        *
 **************************************************************/
@@ -9,11 +9,11 @@
 
 void menu(void);
 
-void nouvellePartie(void);
+void nouvellePartie(int taille, int difficulte);
 
-void sauvegarder(graphe_t plateau);
+int sauvegarder(graphe_t plateau);
 
-int charger(char *fichier);
+int charger(void);
 
 void afficherRegles(void);
 
