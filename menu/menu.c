@@ -56,26 +56,34 @@ void menu() {
 }
 
 graphe_t nouvellePartie(int taille) {
-    graphe_t plateau;
-    /* Création du plateau de jeu vide */
-    plateau = creer_graph(taille*taille+4);
-    for (int i=4; i<taille*taille+4; i++) {
-        ajouterSommet(&plateau, i, 6);
-        changerCouleur(&plateau, VIDE, i);
-    }
-    /* Ajout des arrêtes, d'abord les 4 côtés */
-    for (int i=0; i<4; i++) ajouterSommet(&plateau, i, taille);
-    for (int i=4; i<taille*taille+3; i+=taille) ajouterArrete(&plateau, i, 0);
-    for (int i=4; i<taille+4; i++) ajouterArrete(&plateau, i, 1);
+  graphe_t plateau;
+  /* Création du plateau de jeu vide */
+  plateau = creer_graph(taille*taille+4);
+  /* Ajout des arrêtes, d'abord les 4 côtés */
+  for (int i=0; i<4; i++){
+    ajouterSommet(&plateau, i, taille);
+    if( i == 0 || i == 2 )
+      changerCouleur(&plateau, NOIR, i);
+    if( i == 1 || i ==3)
+      changerCouleur(&plateau, BLANC, i);
+  }
+  for (int i=4; i<taille*taille+4; i++) {
+      ajouterSommet(&plateau, i, 6);
+  }
 
-    for (int i=(taille-1)+4; i<taille*taille+4; i+=taille) ajouterArrete(&plateau, i, 2);
+  for (int i=4; i<(taille*taille)+1; i+=taille) ajouterArrete(&plateau, i, 0);
 
-    for (int i=taille*taille; i<taille*taille+4; i++) ajouterArrete(&plateau, i, 3);
-    for (int i=4; i<taille*taille+4; i++) {
-        if(i+1<taille+taille+((i/(taille+4)) * taille ))ajouterArrete(&plateau, i, i+1);
-        if(i+taille<taille*taille+4)ajouterArrete(&plateau, i, i+taille);
-    }
-    return plateau;
+  for (int i=4; i<taille+4; i++) ajouterArrete(&plateau, i, 1);
+
+  for (int i=(taille-1)+4; i<taille*taille+4; i+=taille) ajouterArrete(&plateau, i, 2);
+
+  for (int i=taille*taille; i<taille*taille+4; i++) ajouterArrete(&plateau, i, 3);
+  for (int i=4; i<taille*taille+4; i++) {
+      if(i+1<taille+taille+((i/(taille+4)) * taille ))ajouterArrete(&plateau, i, i+1);
+      if(i+taille<taille*taille+4)ajouterArrete(&plateau, i, i+taille);
+  }
+
+  return plateau;
 }
 
 int sauvegarder(graphe_t plateau) {
