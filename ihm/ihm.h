@@ -1,6 +1,6 @@
 /*************************************************************
-* jeu.h - En rapport avec l'interface graphique et le jeu    *
-* Dépendance : TAD graphe, fonctions d'util.h, menu du jeu   *
+* ihm.h - En rapport avec l'interface graphique              *
+* Dépendance : TAD graphe                                    *
 * Dernière modification : 22/05/2017                         *
 * Auteur : Romain Roy                                        *
 **************************************************************/
