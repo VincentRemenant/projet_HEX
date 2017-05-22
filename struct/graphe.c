@@ -3,19 +3,19 @@
 #include "graphe.h"
 
 struct adjliste_node_s{
-  int vertex;
-  char couleur;
-  int nb_membres;
-  int nb_liens;
-  bool visited; /*Pour le parcours du graphe, cet variable indique si ce noeud a déja été visité*/
-  adjliste_node_t * suivant;
+  int vertex;/*Numéro du sommet*/
+  char couleur;/*Couleur vertex*/
+  int nb_membres;/*Nombre de membre dans sa liste d'adjacence*/
+  int nb_liens;/*Nombre maximum d'arrete maximum*/
+  adjliste_node_t * suivant;/*liste des éléméents constituant la liste d'adjacence*/
 };
 
 struct graphe_s{
-  int nb_vertices;
-  adjliste_node_t * adjListe;
+  int nb_vertices;/*nombre de vertex maximum*/
+  adjliste_node_t * adjListe; /*liste d'adjacence des sommets*/
 };
 
+/*Créer le nom avec son N° (v) et son nombre de liens(arrete) qu'il peut avoir*/
 adjliste_node_t creer_node(int v, int nb_liens){
     adjliste_node_t node = (adjliste_node_t)malloc(sizeof(struct adjliste_node_s));
     if(!node)
@@ -25,7 +25,6 @@ adjliste_node_t creer_node(int v, int nb_liens){
     node->suivant = malloc(nb_liens * sizeof(struct adjliste_node_s));
     node->suivant[0]= node;
     node->nb_membres = 1;
-    node->visited = false;
     node->couleur = VIDE ;
     return node;
 }
@@ -109,9 +108,9 @@ void afficherGraphe(graphe_t graphe){
     printf("numeroVertex # couleur\n");
     for (i = 0; i < graphe->nb_vertices; i++){
         adjliste_node_t adjListe = graphe->adjListe[i];
-        printf("liste d'adjacence vertex %d : ", i );
+        printf("liste d'adjacence du vertex %d : ", i );
         for(int j = 0 ; j < adjListe->nb_membres; j++){
-            printf("%d#%c->", adjListe->suivant[j]->vertex, getCouleur(graphe, adjListe->suivant[j]->vertex));
+            printf("%d # %c -> ", adjListe->suivant[j]->vertex, getCouleur(graphe, adjListe->suivant[j]->vertex));
         }
         printf("Fin_liste\n");
     }
