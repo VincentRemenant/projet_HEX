@@ -16,7 +16,7 @@ void menu(void) {
         choix = saisir();
         if (strcmp(choix,"nouveau") == 0) nouvellePartie();
         else if (strcmp(choix,"sauver") == 0) /* sauvegarder(graphe_t plateau); */;
-        else if (strcmp(choix,"charger") == 0) charger();
+        else if (strcmp(choix,"charger") == 0) charger("sauvegardes/exemple.txt");
         else if (strcmp(choix,"regles") == 0) afficherRegles();
         else if (strcmp(choix,"options") == 0) parametres(&taille, &difficulte);
         else if (strcmp(choix,"quitter") == 0)
@@ -37,16 +37,35 @@ void menu(void) {
 }
 
 void nouvellePartie(void) {
-    // jeu @Vincent
+    // lancer partie
 }
 
 void sauvegarder(graphe_t plateau) {
-    // @Romain
+
 }
 
-void charger(void) {
-    // @Romain
-    // jeu @Vincent
+int charger(char *fichier) {
+    FILE *f; int taille; char pion;
+    if ((f = fopen(fichier, "r")) == NULL) {
+        perror(fichier);
+        exit(1);
+    }
+
+    /* Récupération de la taille de la grille */
+    fseek(f, 10, SEEK_SET);
+    fscanf(f, "%d", &taille);
+    graphe_t plateau = creer_graph(taille);
+
+    /* Récupération de la disposition des pions */
+    fseek(f, 10, SEEK_CUR);
+    for (int i=0; i<(taille*taille)*2+4; i++) {
+        fscanf(f, "%c", &pion);
+        if (pion != ' ') ajouterSommet(&plateau, i, pion);
+    }
+
+    fclose(f);
+    // lancer partie
+    return 0;
 }
 
 void afficherRegles(void) {
