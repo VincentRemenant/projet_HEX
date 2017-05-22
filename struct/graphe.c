@@ -67,9 +67,7 @@ bool estVide(graphe_t g){
 bool estPlein(graphe_t g){
   return g->adjListe[(g->nb_vertices)-1]!=NULL;
 }
-adjliste_node_t * getListe(graphe_t graphe,int vertex){
-  return graphe->adjListe[vertex]->suivant;
-}
+
 bool estAdjacent(graphe_t graphe, int vertex1,int vertex2, char couleur){
   adjliste_node_t *node = &(graphe->adjListe[vertex1]);
   adjliste_node_t node2 = graphe->adjListe[vertex2];
@@ -84,12 +82,7 @@ bool estAdjacent(graphe_t graphe, int vertex1,int vertex2, char couleur){
 int getNombreSommet(graphe_t graphe){
   return graphe->nb_vertices;
 }
-bool isVisited(graphe_t graphe, int vertex){
-  return graphe->adjListe[vertex]->visited;
-}
-void setVisited(adjliste_node_t * node){
-  (*node)->visited=true;
-}
+
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens){
     adjliste_node_t node = creer_node(vertex, nb_liens);
     (*graphe)->adjListe[vertex] = node;
@@ -109,12 +102,7 @@ void changerCouleur(graphe_t * graphe ,char couleur, int vertex){
 char getCouleur(graphe_t g, int vertex){
   return (g->adjListe[vertex])->couleur;
 }
-int getVertex(adjliste_node_t node){
-  return node->vertex;
-}
-int getNBLiens(graphe_t graphe, int vertex){
-  return graphe->adjListe[vertex]->nb_liens;
-}
+
 
 void afficherGraphe(graphe_t graphe){
     int i;

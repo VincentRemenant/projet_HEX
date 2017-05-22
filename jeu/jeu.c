@@ -2,21 +2,27 @@
 #include <stdlib.h>
 #include "jeu.h"
 
+
+/*Struture de l'élement groupe contenant une liste de vertex*/
 typedef struct groupe_s{
   int nb_node;
   int * chaine;
 }* groupe_t;
+/*Structure d'un joueur, contenant une liste de groupe*/
 struct joueur_s{
   char couleur;
   int nb_groupe;
   groupe_t * groupes;
 };
+
+/*crée un groupe*/
 groupe_t creer_groupe(){
   groupe_t groupe = (groupe_t) malloc(sizeof(struct groupe_s));
   groupe->chaine = malloc(sizeof(int));
   groupe->nb_node=0;
   return groupe;
 }
+/*crée un joueur*/
 joueur_t creer_joueur(char couleur){
   joueur_t joueur =(joueur_t)  malloc(sizeof(struct joueur_s));
   joueur->nb_groupe = 0;
@@ -24,7 +30,6 @@ joueur_t creer_joueur(char couleur){
   return joueur;
 }
 void detruire_joueur(joueur_t * joueur){
-
   free((*joueur)->groupes);
   free(*joueur);
 }
@@ -33,6 +38,7 @@ int ajouterUnGroupe(joueur_t * joueur){
   (*joueur)->groupes[(*joueur)->nb_groupe] = creer_groupe();
   return (*joueur)->nb_groupe++;
 }
+
 void ajouterVertex(groupe_t * groupe, int vertex){
   (*groupe)->chaine[(*groupe)->nb_node++] = vertex;
 }

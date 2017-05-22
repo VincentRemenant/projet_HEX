@@ -16,7 +16,6 @@ int main(){
     printf("Vérification si graphe plein : %d\n", estPlein(graphe) );
     printf("ajout arrete\n");
     ajouterArrete(&graphe,0, 4);//0->4  4->0
-
     ajouterArrete(&graphe,0, 2);//0->2  2->0
     ajouterArrete(&graphe,1, 2);//1->2  2->1
     ajouterArrete(&graphe,1, 3);//1->3  3->1

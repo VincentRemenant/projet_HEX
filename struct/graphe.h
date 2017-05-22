@@ -1,3 +1,11 @@
+/*************************************************************
+* jeu.h - Struture du plateau du jeu de hex (graphe)         *
+* Dépendance : aucune                                        *
+* Dernière modification : 22/05/2017                         *
+* Auteur : Vincent REMENANT                                  *
+**************************************************************/
+
+
 #ifndef GRAPHE_H
 #define GRAPHE_H
 
@@ -13,19 +21,12 @@ graphe_t creer_graph(int N);
 void detruire_graphe(graphe_t * graphe);
 bool estVide(graphe_t g);
 bool estPlein(graphe_t g);
-bool isVisited(graphe_t graphe, int vertex);
-void setVisited(adjliste_node_t * node);
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens);
 void ajouterArrete(graphe_t * graphe, int vertex1 , int vertex2);
 void changerCouleur(graphe_t * g ,char couleur, int vertex);
 char getCouleur(graphe_t graphe, int vertex);
-adjliste_node_t * getListe(graphe_t graphe, int vertex);
 int getNombreSommet(graphe_t graphe);
-int getVertex(adjliste_node_t node);
-int getNBLiens(graphe_t graphe ,int vertex);
 bool estAdjacent(graphe_t graphe, int vertex1,int vertex2, char couleur);
-// bool estConnecte(graphe_t sommet1,graphe_t sommet2);
-// int getDistance(graphe_t sommet1, graphe_t sommet2);
 void afficherGraphe(graphe_t graphe);
 
 #endif
