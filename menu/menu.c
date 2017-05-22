@@ -2,10 +2,10 @@
 #include <string.h>
 #include <stdio.h>
 #include "menu.h"
+#include "../ihm/ihm.h"
 #include "../util/util.h"
 #include "../struct/graphe.h"
 
-// Ajout de couleurs dans une prochaine version
 
 void menu(void) {
     char *choix;
@@ -56,7 +56,7 @@ void nouvellePartie(int taille, int difficulte) {
         ajouterArrete(&plateau, i, i+1);
         ajouterArrete(&plateau, i, i+taille);
     }
-    // lancer partie
+    interface(plateau);
 }
 
 int sauvegarder(graphe_t plateau) {
@@ -120,7 +120,7 @@ int charger(void) {
     }
     fclose(f);
     free(fichier);
-    // lancer partie
+    interface(plateau);
     return 0;
 }
 
