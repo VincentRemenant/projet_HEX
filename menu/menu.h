@@ -7,14 +7,14 @@
 
 #include "../struct/graphe.h"
 
-void menu(void);
+void menu();
 
-void nouvellePartie(int taille, int difficulte);
+graphe_t nouvellePartie(int taille);
 
 int sauvegarder(graphe_t plateau);
 
-int charger(void);
+graphe_t charger();
 
-void afficherRegles(void);
+void afficherRegles();
 
-void parametres(int *largeur, int *difficulte);
+void parametres(int *largeur);

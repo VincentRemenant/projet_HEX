@@ -21,6 +21,8 @@ menu.o: menu/menu.c menu/menu.h util/util.h struct/graphe.h
 	$(CC) -o menu.o -c menu/menu.c $(SYS)
 ihm.o : ihm/ihm.c ihm/ihm.h struct/graphe.h
 	$(CC) -o ihm.o -c ihm/ihm.c $(SYS)
+jeu.o: jeu/jeu.c jeu/jeu.h struct/graphe.h
+	$(CC) -o jeu.o -c jeu/jeu.c $(SYS)
 main.o: main.c menu/menu.h
 	$(CC) -o main.o -c main.c $(SYS)
 

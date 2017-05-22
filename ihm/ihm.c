@@ -6,7 +6,6 @@
 #include "../struct/graphe.h"
 
 void interface(graphe_t plateau) {
-    system("clear");
     int taille = sqrt(getNombreSommet(plateau));
     for (int i=0; i<taille; i++) printf("W ");
     printf("W/B\n");
