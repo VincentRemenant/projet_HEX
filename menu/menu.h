@@ -6,6 +6,7 @@
 **************************************************************/
 
 #include "../struct/graphe.h"
+#include "../jeu/jeu.h"
 
 void menu();
 
@@ -19,4 +20,4 @@ void afficherRegles();
 
 void parametres(int *largeur);
 
-graphe_t jouer(graphe_t plateau, int tour);
+graphe_t jouer(graphe_t plateau, joueur_t joueur);

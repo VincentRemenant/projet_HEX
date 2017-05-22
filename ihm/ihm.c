@@ -7,6 +7,7 @@
 
 void interface(graphe_t plateau) {
     int taille = sqrt(getNombreSommet(plateau));
+    printf("\n");
     for (int i=0; i<taille; i++) printf("W ");
     printf("W/B\n");
     for (int i=4; i<taille*taille+4; i++) {

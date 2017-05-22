@@ -19,6 +19,7 @@ void menu() {
     do {
         printf(">>> ");
         choix = saisir();
+        system("clear");
         if (strcmp(choix,"nouveau") == 0) plateau = nouvellePartie(taille);
         else if (strcmp(choix,"sauver") == 0) {
             if (estVide(plateau)) printf("Il n'y a pas de partie en cours.\n");
@@ -26,7 +27,14 @@ void menu() {
         }
         else if (strcmp(choix,"jouer") == 0) {
             if (estVide(plateau)) printf("Il n'y a pas de partie en cours.\n");
-            else plateau = jouer(plateau, tour);
+            else {
+                if (tour == BLANC) plateau = jouer(plateau, blanc);
+                else plateau = jouer(plateau, noir);
+            }
+            if (estTermine(blanc, noir) != '.') printf("fin\n");
+            /* on change de joueur pour le tour suivant */
+            if (tour == BLANC) tour = NOIR;
+            else tour = BLANC;
         }
         else if (strcmp(choix,"charger") == 0) plateau = charger();
         else if (strcmp(choix,"regles") == 0) afficherRegles();
@@ -46,8 +54,6 @@ void menu() {
         else
             printf("Cette commande n'est pas reconnue : faites \"aide\" pour obtenir la liste des commandes.\n");
         if (!estVide(plateau)) interface(plateau);
-        if (tour == BLANC) tour = NOIR;
-        else tour = BLANC;
     } while (strcmp(choix,"quitter") != 0);
     detruire_graphe(&plateau);
     detruire_joueur(&blanc);
@@ -151,18 +157,20 @@ graphe_t charger() {
     return 0;
 }
 
-graphe_t jouer(graphe_t plateau, int tour) {
+graphe_t jouer(graphe_t plateau, joueur_t joueur) {
+    interface(plateau);
     int ligne, colonne, vertex, dim;
     dim = sqrt(getNombreSommet(plateau));
     do {
-        printf("Le joueur '%c' choisi où il joue : \n", tour);
+        printf("Le joueur '%c' choisi où il joue : \n", getCouleurJoueur(joueur));
         printf("Ligne : ");
-        scanf(" %d",&ligne);
+        scanf("%d",&ligne);
         printf("Colonne : ");
-        scanf(" %d",&colonne);
+        scanf("%d",&colonne);
         vertex = (ligne-1)*dim+(colonne-1)+4;
-    } while (vertex <= 4 || vertex > dim*dim+4);
-    printf("La joueur '%c' joue en %d/%d.\n", tour, ligne, colonne);
+    } while (vertex < 4 || vertex > dim*dim+4);
+    printf("La joueur '%c' joue en %d/%d.\n", getCouleurJoueur(joueur), ligne, colonne);
+    placerJeton(&plateau, &joueur, vertex);
     return plateau;
 }
 
