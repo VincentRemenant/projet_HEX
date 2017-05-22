@@ -55,9 +55,9 @@ void nouvellePartie(int taille, int difficulte) {
     for (int i=(taille-1)+4; i<taille*taille+4; i+=taille) ajouterArrete(&plateau, i, 2);
 
     for (int i=taille*taille; i<taille*taille+4; i++) ajouterArrete(&plateau, i, 3);
-    for (int i=4; i<taille*taille+4-taille; i++) {
-        ajouterArrete(&plateau, i, i+1);
-        ajouterArrete(&plateau, i, i+taille);
+    for (int i=4; i<taille*taille+4; i++) {
+        if(i+1<taille+taille+((i/(taille+4)) * taille ))ajouterArrete(&plateau, i, i+1);
+        if(i+taille<taille*taille+4)ajouterArrete(&plateau, i, i+taille);
     }
     interface(plateau);
 }
