@@ -1,6 +1,6 @@
 /*************************************************************
 * util.h - Fonctions de bases utiles pour le jeu de hex      *
-* Dépendance :                                     *
+* Dépendance :                                               *
 * Dernière modification : 22/05/2017                         *
 * Auteur : Romain Roy                                        *
 **************************************************************/
