@@ -5,6 +5,7 @@
 int main(){
     printf("Début\n");
     graphe_t graphe = creer_graph(5);
+    printf("Vérification si graphe vide : %d\n",estVide(graphe) );
     printf("ajout sommet\n");
 
     ajouterSommet(&graphe, 0, 2);
@@ -12,7 +13,7 @@ int main(){
     ajouterSommet(&graphe, 2, 2);
     ajouterSommet(&graphe, 3, 1);
     ajouterSommet(&graphe, 4, 2);
-
+    printf("Vérification si graphe plein : %d\n", estPlein(graphe) );
     printf("ajout arrete\n");
     ajouterArrete(&graphe,0, 4);//0->4  4->0
     ajouterArrete(&graphe,0, 2);//0->2  2->0

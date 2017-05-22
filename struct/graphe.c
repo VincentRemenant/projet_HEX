@@ -24,7 +24,7 @@ adjliste_node_t creer_node(int v, int nb_liens){
     node->suivant = malloc(nb_liens * sizeof(struct adjliste_node_s));
     node->suivant[0]=node;
     node->nb_membres = 1;
-    node->couleur = TRANSPARENT ;
+    node->couleur = VIDE ;
     return node;
 }
 graphe_t creer_graph(int N){
@@ -59,6 +59,12 @@ void detruire_graphe(graphe_t * graphe){
 
     }
 }
+bool estVide(graphe_t g){
+  return g->adjListe[0]==NULL;
+}
+bool estPlein(graphe_t g){
+  return g->adjListe[(g->nb_vertices)-1]!=NULL;
+}
 
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens){
     adjliste_node_t node = creer_node(vertex, nb_liens);
@@ -86,10 +92,10 @@ void afficherGraphe(graphe_t graphe){
     printf("numeroVertex # couleur\n");
     for (i = 0; i < graphe->nb_vertices; i++){
         adjliste_node_t adjListe = graphe->adjListe[i];
-        printf("liste %d : ", i );
+        printf("liste d'adjacence vertex %d : ", i );
         for(int j = 0 ; j < adjListe->nb_membres; j++){
             printf("%d#%c->", adjListe->suivant[j]->vertex, getCouleur(graphe, adjListe->suivant[j]->vertex));
         }
-        printf("FIN\n");
+        printf("Fin_liste\n");
     }
 }
