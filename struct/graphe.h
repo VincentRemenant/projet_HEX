@@ -8,7 +8,6 @@
 
 
 typedef struct adjliste_node_s * adjliste_node_t;
-typedef struct adjliste_s * adjliste_t;
 typedef struct graphe_s * graphe_t;
 graphe_t creer_graph(int N);
 void detruire_graphe(graphe_t * graphe);
@@ -24,7 +23,7 @@ adjliste_node_t * getListe(graphe_t graphe, int vertex);
 int getNombreSommet(graphe_t graphe);
 int getVertex(adjliste_node_t node);
 int getNBLiens(graphe_t graphe ,int vertex);
-// bool estAdjacent(graphe_t sommet1,graphe_t sommet2);
+bool estAdjacent(graphe_t graphe, int vertex1,int vertex2, char couleur);
 // bool estConnecte(graphe_t sommet1,graphe_t sommet2);
 // int getDistance(graphe_t sommet1, graphe_t sommet2);
 void afficherGraphe(graphe_t graphe);

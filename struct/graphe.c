@@ -70,6 +70,16 @@ bool estPlein(graphe_t g){
 adjliste_node_t * getListe(graphe_t graphe,int vertex){
   return graphe->adjListe[vertex]->suivant;
 }
+bool estAdjacent(graphe_t graphe, int vertex1,int vertex2, char couleur){
+  adjliste_node_t *node = &(graphe->adjListe[vertex1]);
+  adjliste_node_t node2 = graphe->adjListe[vertex2];
+  adjliste_node_t cur = *node;
+  for(int i = 0; cur!=NULL ; i++, cur = cur->suivant[i]){
+    if(cur->vertex == vertex2 && cur->couleur == node2->couleur)
+      return true;
+  }
+  return false;
+}
 
 int getNombreSommet(graphe_t graphe){
   return graphe->nb_vertices;
