@@ -7,6 +7,7 @@ struct adjliste_node_s{
   char couleur;
   int nb_membres;
   int nb_liens;
+  bool visited; /*Pour le parcours du graphe, cet variable indique si ce noeud a déja été visité*/
   adjliste_node_t * suivant;
 };
 
@@ -22,8 +23,9 @@ adjliste_node_t creer_node(int v, int nb_liens){
     node->nb_liens = nb_liens;
     node->vertex = v;
     node->suivant = malloc(nb_liens * sizeof(struct adjliste_node_s));
-    node->suivant[0]=node;
+    node->suivant[0]= node;
     node->nb_membres = 1;
+    node->visited = false;
     node->couleur = VIDE ;
     return node;
 }
@@ -52,20 +54,32 @@ void detruire_graphe(graphe_t * graphe){
                 free(adjListe->suivant);
                 free(adjListe);
             }
-
         }
         free((*graphe)->adjListe);
         free(*graphe);
 
     }
 }
+
 bool estVide(graphe_t g){
   return g->adjListe[0]==NULL;
 }
 bool estPlein(graphe_t g){
   return g->adjListe[(g->nb_vertices)-1]!=NULL;
 }
+adjliste_node_t * getListe(graphe_t graphe,int vertex){
+  return graphe->adjListe[vertex]->suivant;
+}
 
+int getNombreSommet(graphe_t graphe){
+  return graphe->nb_vertices;
+}
+bool isVisited(graphe_t graphe, int vertex){
+  return graphe->adjListe[vertex]->visited;
+}
+void setVisited(adjliste_node_t * node){
+  (*node)->visited=true;
+}
 void ajouterSommet(graphe_t * graphe, int vertex, int nb_liens){
     adjliste_node_t node = creer_node(vertex, nb_liens);
     (*graphe)->adjListe[vertex] = node;
@@ -85,7 +99,12 @@ void changerCouleur(graphe_t * graphe ,char couleur, int vertex){
 char getCouleur(graphe_t g, int vertex){
   return (g->adjListe[vertex])->couleur;
 }
-
+int getVertex(adjliste_node_t node){
+  return node->vertex;
+}
+int getNBLiens(graphe_t graphe, int vertex){
+  return graphe->adjListe[vertex]->nb_liens;
+}
 
 void afficherGraphe(graphe_t graphe){
     int i;

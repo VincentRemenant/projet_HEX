@@ -23,9 +23,9 @@ int main(){
 
 
     afficherGraphe(graphe);
-
+    printf("changement de couleur du vertex 1 en noir\n");
     changerCouleur(&graphe, NOIR , 1);
-    printf("couleur vertex n°1 : %c \n", getCouleur(graphe,1));
+    printf(" couleur vertex n°1 : %c \n", getCouleur(graphe,1));
     afficherGraphe(graphe);
     detruire_graphe(&graphe);
 
