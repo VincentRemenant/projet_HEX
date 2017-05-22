@@ -17,7 +17,7 @@ joueur_t creer_joueur(char couleur);
 /*Détruit un joueur permettant de libérer de la la mémoire*/
 void detruire_joueur(joueur_t * joueur);
 /*Change la couleur  d'un sommet par la couleur d'un joueur du graphe passé en parametre*/
-void placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex);
+int placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex);
 /*vérifie si les joueurs ont une chaine de vertex gagnante et retourne la couleur gagnante*/
 char estTermine(joueur_t joueur1 , joueur_t joueur2);
 char getCouleurJoueur(joueur_t joueur);

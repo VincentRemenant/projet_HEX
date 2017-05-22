@@ -44,7 +44,7 @@ void ajouterVertex(groupe_t * groupe, int vertex){
   (*groupe)->chaine[(*groupe)->nb_node++] = vertex;
 }
 /*Place un jeton coloré sur le plateau du jeu*/
-void placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex){
+int placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex){
   if(getCouleur(*graphe, vertex) == VIDE){
     changerCouleur(graphe, (*joueur)->couleur , vertex);
 
@@ -53,14 +53,17 @@ void placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex){
       for(int j = 0 ; j < (*groupe)->nb_node ;j++ ){
         if( estAdjacent(*graphe, (*groupe)->chaine[j], vertex,(*joueur)->couleur )){
           ajouterVertex(groupe, vertex);
-          return ;
+          return 0;
         }
       }
     }
 
     int g = ajouterUnGroupe(joueur);
     ajouterVertex(&((*joueur)->groupes[g]), vertex);
+    return 0;
   }
+  return 1;
+
 }
 char estTermine(joueur_t joueur1 , joueur_t joueur2){
     int res = 0;
