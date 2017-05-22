@@ -45,7 +45,7 @@ void sauvegarder(graphe_t plateau) {
 }
 
 int charger(char *fichier) {
-    FILE *f; int taille, pion;
+    FILE *f; int taille; char pion;
     if ((f = fopen(fichier, "r")) == NULL) {
         perror(fichier);
         exit(1);
@@ -57,10 +57,10 @@ int charger(char *fichier) {
     graphe_t plateau = creer_graph(taille);
 
     /* Récupération de la disposition des pions */
-    fseek(f, 8, SEEK_CUR);
-    for (int i=0; i<taille*taille; i++) {
-        fscanf(f, "%d", &pion);
-        ajouterSommet(&plateau, i, pion);
+    fseek(f, 10, SEEK_CUR);
+    for (int i=0; i<(taille*taille)*2+4; i++) {
+        fscanf(f, "%c", &pion);
+        if (pion != ' ') ajouterSommet(&plateau, i, pion);
     }
 
     fclose(f);
