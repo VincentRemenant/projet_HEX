@@ -20,8 +20,8 @@ int main(){
     ajouterArrete(&graphe,1, 2);//1->2  2->1
     ajouterArrete(&graphe,1, 3);//1->3  3->1
     ajouterArrete(&graphe,1, 4);//1->4  4->1
-    printf("es ce que les vertex 0 et 4 sont adjacent ? %d\n",estAdjacent(graphe, 0, 4) );
-    printf("es ce que les vertex 4 et 0 sont adjacent ? %d\n",estAdjacent(graphe, 4, 0) );
+    printf("es ce que les vertex 0 et 4 sont adjacent ? %d\n",estAdjacent(graphe, 0, 4,'.') );
+    printf("es ce que les vertex 4 et 0 sont adjacent ? %d\n",estAdjacent(graphe, 4, 0,'.') );
     afficherGraphe(graphe);
     printf("changement de couleur du vertex 1 en noir\n");
     changerCouleur(&graphe, NOIR , 1);
