@@ -11,24 +11,5 @@ Avancement du projet :
 - [x] Paramètres
 - [x] Aide
 - [x] Quitter
-- [ ] Sauvegarder
-- [ ] Charger
-- [ ] Interface
-- [ ] Et le jeu
-
-### Rappels de Markdown
-
-* Un élément
-	* Un sous élément
-	* Un autre sous élément
-
-> Une citation
->> Une réponse
-
-Exemple d'utilisation de la fonction `ecrireDuCode()` :
-
-    void main() {
-      ecrireDuCode();
-    }
-
-Un [lien](https://fr.wikipedia.org/wiki/Markdown) pour apprendre le Markdown
+- [x] Sauvegarder
+- [x] Charger
