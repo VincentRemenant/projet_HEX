@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "menu.h"
+#include "../jeu/jeu.h"
 #include "../ihm/ihm.h"
 #include "../util/util.h"
 #include "../struct/graphe.h"
@@ -11,6 +12,9 @@ void menu() {
     char *choix;
     graphe_t plateau = creer_graph(0);
     int taille = 11;
+    joueur_t blanc = creer_joueur(BLANC);
+    joueur_t noir = creer_joueur(NOIR);
+    int tour = BLANC;
     printf("Jeu de Hex\n");
     do {
         printf(">>> ");
@@ -20,12 +24,17 @@ void menu() {
             if (estVide(plateau)) printf("Il n'y a pas de partie en cours.\n");
             else sauvegarder(plateau);
         }
+        else if (strcmp(choix,"jouer") == 0) {
+            if (estVide(plateau)) printf("Il n'y a pas de partie en cours.\n");
+            else plateau = jouer(plateau, tour);
+        }
         else if (strcmp(choix,"charger") == 0) plateau = charger();
         else if (strcmp(choix,"regles") == 0) afficherRegles();
         else if (strcmp(choix,"options") == 0) parametres(&taille);
         else if (strcmp(choix,"quitter") == 0)
             printf("Ce fut un plaisir de jouer avec vous, à bientôt !\n");
         else if (strcmp(choix,"aide") == 0) {
+            printf("jouer   : Le joueur actif pose un pion\n");
             printf("nouveau : Commence une nouvelle partie\n");
             printf("sauver  : Enregistre une partie en cours\n");
             printf("charger : Reprend une partie enregistrée\n");
@@ -35,9 +44,14 @@ void menu() {
         } else if (strcmp(choix,"") == 0)
             /* rien */;
         else
-            printf("Cette commande n'est pas reconnue : faites \"aide\" pour obtenir la liste des commandes\n");
+            printf("Cette commande n'est pas reconnue : faites \"aide\" pour obtenir la liste des commandes.\n");
         if (!estVide(plateau)) interface(plateau);
+        if (tour == BLANC) tour = NOIR;
+        else tour = BLANC;
     } while (strcmp(choix,"quitter") != 0);
+    detruire_graphe(&plateau);
+    detruire_joueur(&blanc);
+    detruire_joueur(&noir);
     free(choix);
 }
 
@@ -127,6 +141,21 @@ graphe_t charger() {
     free(fichier);
     return plateau;
     return 0;
+}
+
+graphe_t jouer(graphe_t plateau, int tour) {
+    int ligne, colonne, vertex, dim;
+    dim = sqrt(getNombreSommet(plateau));
+    do {
+        printf("Le joueur '%c' choisi où il joue : \n", tour);
+        printf("Ligne : ");
+        scanf(" %d",&ligne);
+        printf("Colonne : ");
+        scanf(" %d",&colonne);
+        vertex = (ligne-1)*dim+(colonne-1)+4;
+    } while (vertex <= 4 || vertex > dim*dim+4);
+    printf("La joueur '%c' joue en %d/%d.\n", tour, ligne, colonne);
+    return plateau;
 }
 
 void afficherRegles() {

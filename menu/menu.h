@@ -18,3 +18,5 @@ graphe_t charger();
 void afficherRegles();
 
 void parametres(int *largeur);
+
+graphe_t jouer(graphe_t plateau, int tour);
