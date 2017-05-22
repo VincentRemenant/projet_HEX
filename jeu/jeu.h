@@ -16,7 +16,8 @@ typedef struct joueur_s * joueur_t;
 joueur_t creer_joueur(char couleur);
 /*Détruit un joueur permettant de libérer de la la mémoire*/
 void detruire_joueur(joueur_t * joueur);
-/*Change la couleur  d'un sommet par la couleur d'un joueur du graphe passé en parametre*/
+/*Change la couleur  d'un sommet par la couleur d'un joueur du graphe passé en parametre,
+retourne 0 en cas de réussite et 1 en cas d'échec*/
 int placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex);
 /*vérifie si les joueurs ont une chaine de vertex gagnante et retourne la couleur gagnante*/
 char estTermine(joueur_t joueur1 , joueur_t joueur2);

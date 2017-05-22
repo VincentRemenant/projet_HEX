@@ -39,7 +39,7 @@ int ajouterUnGroupe(joueur_t * joueur){
   (*joueur)->groupes[(*joueur)->nb_groupe] = creer_groupe();
   return (*joueur)->nb_groupe++;
 }
-
+/*ajoute un vertex au groupe en paramètre*/
 void ajouterVertex(groupe_t * groupe, int vertex){
   (*groupe)->chaine[(*groupe)->nb_node++] = vertex;
 }
@@ -47,7 +47,6 @@ void ajouterVertex(groupe_t * groupe, int vertex){
 int placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex){
   if(getCouleur(*graphe, vertex) == VIDE){
     changerCouleur(graphe, (*joueur)->couleur , vertex);
-
     for (int i  = 0  ; i< (*joueur)->nb_groupe ; i++){
       groupe_t * groupe = &((*joueur)->groupes[i]);
       for(int j = 0 ; j < (*groupe)->nb_node ;j++ ){
