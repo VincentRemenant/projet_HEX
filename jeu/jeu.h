@@ -20,5 +20,5 @@ void detruire_joueur(joueur_t * joueur);
 void placerJeton(graphe_t * graphe,joueur_t * joueur, int vertex);
 /*vérifie si les joueurs ont une chaine de vertex gagnante et retourne la couleur gagnante*/
 char estTermine(joueur_t joueur1 , joueur_t joueur2);
-
+char getCouleurJoueur(joueur_t joueur);
 #endif

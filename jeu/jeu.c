@@ -27,6 +27,7 @@ joueur_t creer_joueur(char couleur){
   joueur_t joueur =(joueur_t)  malloc(sizeof(struct joueur_s));
   joueur->nb_groupe = 0;
   joueur->groupes = malloc(sizeof(groupe_t));
+  joueur->couleur =  couleur;
   return joueur;
 }
 void detruire_joueur(joueur_t * joueur){
@@ -86,4 +87,7 @@ char estTermine(joueur_t joueur1 , joueur_t joueur2){
     return '.';
 
 
+}
+char getCouleurJoueur(joueur_t joueur){
+  return joueur->couleur;
 }
