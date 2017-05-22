@@ -24,7 +24,7 @@ adjliste_node_t creer_node(int v, int nb_liens){
     node->suivant = malloc(nb_liens * sizeof(struct adjliste_node_s));
     node->suivant[0]=node;
     node->nb_membres = 1;
-    node->couleur = TRANSPARENT ;
+    node->couleur = VIDE ;
     return node;
 }
 graphe_t creer_graph(int N){

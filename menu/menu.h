@@ -6,7 +6,7 @@ void nouvellePartie(void);
 
 void sauvegarder(graphe_t plateau);
 
-void charger(void);
+int charger(char *fichier);
 
 void afficherRegles(void);
 

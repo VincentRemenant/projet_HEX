@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #define NOIR '*'
 #define BLANC 'o'
-#define TRANSPARENT '.'
+#define VIDE '.'
 
 
 typedef struct adjliste_node_s * adjliste_node_t;
